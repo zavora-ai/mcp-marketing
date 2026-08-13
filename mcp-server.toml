@@ -1,0 +1,165 @@
+server_id = "mcp_marketing"
+display_name = "Marketing"
+version = "1.1.0"
+domain = "marketing"
+sdk_version = "0.2.0"
+risk_level = "medium"
+writes_allowed = "gated"
+transports = ["stdio"]
+credentials = []
+governance_gates = ["mrtr_approval"]
+environments = ["development", "staging", "production"]
+
+[[tools]]
+name = "list_campaigns"
+description = "List campaigns filtered by status (draft, active, paused, completed) or channel"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_campaign"
+description = "Get campaign details: channels, audience, budget, performance summary"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "create_campaign"
+description = "Create a multi-channel campaign (draft state)"
+risk_class = "generated_write_draft"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "launch_campaign"
+description = "Launch a draft campaign — activates across all configured channels"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "pause_campaign"
+description = "Pause a running campaign"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "list_audiences"
+description = "List audience segments with sizes"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_audience"
+description = "Get audience segment definition and size"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "create_audience"
+description = "Create an audience segment from targeting criteria"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "estimate_reach"
+description = "Estimate reach for targeting criteria before creating audience"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "list_content"
+description = "List content assets for a campaign or all"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "create_content"
+description = "Generate campaign copy (email subject, ad text, social post)"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_ab_variants"
+description = "Get A/B test variants and their performance"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_content_calendar"
+description = "View content calendar — scheduled posts and emails"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "list_channels"
+description = "List configured marketing channels and their status"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "schedule_post"
+description = "Schedule a social media post"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "create_ad"
+description = "Create an ad on Google, Meta, or LinkedIn"
+risk_class = "internal_write"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "send_campaign_email"
+description = "Send a campaign email to an audience segment"
+risk_class = "internal_write"
+requires_approval = true
+credential_bindings = []
+
+[[tools]]
+name = "get_campaign_metrics"
+description = "Get campaign metrics: impressions, clicks, conversions, spend, ROAS"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_attribution"
+description = "Get multi-touch attribution report"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_channel_comparison"
+description = "Compare performance across channels (email vs ads vs social)"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "get_budget_status"
+description = "Get budget status: spend vs budget, burn rate, forecast"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []
+
+[[tools]]
+name = "allocate_budget"
+description = "Allocate/shift budget between channels within a campaign"
+risk_class = "read_only"
+requires_approval = false
+credential_bindings = []

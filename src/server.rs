@@ -72,7 +72,7 @@ fn r(result: Result<serde_json::Value, anyhow::Error>) -> String {
     }
 }
 
-#[tool_router(server_handler)]
+#[tool_router]
 impl MarketingServer {
     // === Campaigns (5) ===
 
@@ -224,4 +224,11 @@ impl MarketingServer {
     async fn allocate_budget(&self, Parameters(input): Parameters<AllocateBudgetInput>) -> String {
         r(self.api.post(&format!("/campaigns/{}/budget/allocate", input.campaign_id), &json!({"allocations": input.allocations})).await)
     }
+}
+
+adk_mcp_sdk::mcp_2026_server! {
+    server: MarketingServer,
+    task_tools: [],
+    approval_tools: ["send_campaign_email"],
+    cache_ttl_ms: 60_000,
 }
